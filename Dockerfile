@@ -44,4 +44,6 @@ RUN apk add --no-cache \
 # copy built files from builder stage
 COPY --from=builder /target/ /usr/local/
 
+STOPSIGNAL TERM
+
 ENTRYPOINT ["turnserver"]
