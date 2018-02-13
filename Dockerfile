@@ -22,7 +22,9 @@ RUN git clone --recursive "$COTURN_GIT_URL" /src \
 RUN cd /src && ./configure \
 	--sysconfdir=/config \
 	--turndbdir=/db \
-	--prefix=/target
+	--prefix=/target \
+	--localstatedir=/var
+	
 RUN cd /src && make -j$(nproc)
 RUN cd /src && make install
 
