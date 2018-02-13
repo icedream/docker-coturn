@@ -20,7 +20,7 @@ RUN git clone --recursive "$COTURN_GIT_URL" /src \
 
 # configure and build
 RUN cd /src && ./configure \
-	--sysconfdir=/config \
+	--sysconfdir=/etc \
 	--turndbdir=/db \
 	--prefix=/target \
 	--localstatedir=/var

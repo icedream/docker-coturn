@@ -14,8 +14,9 @@ would like `turnserver` to write a default configuration file to it) or can be
 copied into the container as a config file in newer Docker version.
 
 ```sh
+wget https://github.com/coturn/coturn/raw/master/examples/etc/turnserver.conf
 docker run \
-	-v ./config/:/config \
+	-v ./turnserver.conf:/etc/turnserver.conf:ro \
 	-v ./db/:/db \
 	icedream/coturn
 ```
