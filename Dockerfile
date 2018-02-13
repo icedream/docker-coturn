@@ -19,7 +19,10 @@ RUN git clone --recursive "$COTURN_GIT_URL" /src \
 	&& cd /src && git checkout "${COTURN_VERSION}"
 
 # configure and build
-RUN cd /src && ./configure --sysconfdir=/etc --turndbdir=/db --prefix=/target
+RUN cd /src && ./configure \
+	--sysconfdir=/config \
+	--turndbdir=/db \
+	--prefix=/target
 RUN cd /src && make -j$(nproc)
 RUN cd /src && make install
 
