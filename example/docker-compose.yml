@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  coturn:
+    image: icedream/coturn
+    #network_mode: host
+    ports:
+      - '3478:3478'
+      - '5349:5349'
+    volumes:
+      - './config:/config'
+      - './tlsfiles:/tlsfiles'
+      - './database:/db'
